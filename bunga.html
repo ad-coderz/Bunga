@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #text-container {
+        margin-top: 10px;
+      }
+      #hello-text {
+        font-size: 24px;
+        color: #333;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #image-container, #image-container2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 1; /* Ensure image is above other content */
+        animation: fadeIn 0.5s ease forwards; /* Fade-in animation */
+      }
+      img {
+        max-width: 200px;
+        height: auto;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      #MASAM {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 7px;
+      }
+      #MASAM:hover {
+        background-color: #e55347;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="text-container">
+      <p id="hello-text">Hai awak,<br />nak bunga tak?</p>
+      <button id="yesButton">Nak</button>
+      <button id="noButton">Tak Nokk</button>
+    </div>
+
+    <button id="MASAM">TAK NAK JUGAKK (kalau tekan maksudnya awak masam)</button>
+
+    <div id="image-container">
+      <img id="image1"
+        src="https://media.tenor.com/3HXj24goQicAAAAi/tkthao219-quby.gif"
+        alt="Displayed Image"/>
+    </div>
+
+    <div id="image-container2">
+      <img id="image2"
+      src="https://media1.tenor.com/m/I5rivhmEiH4AAAAd/contemplating-thinking.gif"/>
+    </div>
+
+    <script>
+      const helloText = document.getElementById("hello-text");
+      const imageContainer = document.getElementById("image-container");
+      const imageContainer2 = document.getElementById("image-container2");
+      const displayImage = document.getElementById("image1");
+      const displayImage2 = document.getElementById("image2");
+      const yesButton = document.getElementById("yesButton");
+      const noButton = document.getElementById("noButton");
+      const MASAM = document.getElementById("MASAM");
+
+      // Function for "Nak" and "Tak Nokk"
+      function handleClick() {
+        helloText.style.display = "none"; // Hide text
+        imageContainer.style.display = "block"; // Show image
+        yesButton.style.display = "none"; // Hide Yes button
+        noButton.style.display = "none"; // Hide No button
+        MASAM.style.display = "none";
+        displayImage.style.opacity = "1";
+      }
+
+      // Function for "MASAM"
+      function handleClick2() {
+        helloText.style.display = "none"; // Hide text
+        imageContainer2.style.display = "block"; // Show image
+        yesButton.style.display = "none"; // Hide Yes button
+        noButton.style.display = "none"; // Hide No button
+        displayImage2.style.opacity = "1";
+      }
+
+      // Hover effect for "No" button
+      noButton.addEventListener("mouseenter", function () { 
+        this.textContent = "NAK SANGATTT"; 
+      });
+      noButton.addEventListener("mouseleave", function () { 
+        this.textContent = "Tak Nokk"; 
+      });
+
+      // Attach click events
+      yesButton.addEventListener("click", handleClick);
+      noButton.addEventListener("click", handleClick);
+      MASAM.addEventListener("click", handleClick2);
+    </script>
+  </body>
+</html>
